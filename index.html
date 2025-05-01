@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <section>
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" id="loginUsername" placeholder="Username" name="loginUsername"required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-wrap">
+                    <input type="password" id="loginPassword" placeholder="Password" name="loginPassword" autocomplete="off" minlength="6" required>
+                    <i class="bx bx-hide toggle-password" data-target="loginPassword"></i>
+                    </div>
+                    <a href="#">Forgot Your Password?</a>
+                </div>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="#" onclick="switchToRegister()">Sign up</a></p>
+            </form><br>
+        </section>
+
+        <section id="register-section" style="display: none;">
+            <h2>Register</h2>
+            <form id="register-form">
+                <!--NAME-->
+                <fieldset>
+                    <legend>Name</legend>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" placeholder="Last Name" name="lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" placeholder="First Name" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="middleName">Middle Name</label>
+                            <input type="text" id="middleName" placeholder="Middle Name" name="middleName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="suffix">Suffix</label>
+                            <input type="text" id="suffix" placeholder="Jr/Sr/I/II/III" name="suffix">
+                        </div>
+                    </div>
+                </fieldset>
+                <!--CONTACT DETAILS-->
+                <fieldset>
+                    <legend>Contact Details</legend>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="09123456789" name="phone" minlength="11" maxlength="11" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-add">Email Address</label>
+                        <input type="email" id="email-add" placeholder="juandelacruz1@gmail.com" name="email-add" required>
+                    </div>
+                </fieldset>
+                <!--ADDRESS-->
+                <fieldset>
+                    <legend>Address</legend>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="region">Region</label>
+                            <select id="region" name="region" required>
+                                <option value="">-- Select Region --</option>
+                                <option value="NCR">NCR</option>
+                                <option value="Region I">Region I - Ilocos</option>
+                                <option value="Region II">Region II - Cagayan Valley</option>
+                                <option value="Region III">Region III - Central Luzon</option>
+                                <option value="Region IV-A">Region IV-A - CALABARZON</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="province">Province</label>
+                        <select id="province" name="province" disabled required>
+                            <option value="">-- Select Province --</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                        <label for="city">City</label>
+                        <select id="city" name="city" disabled required>
+                            <option value="">-- Select City --</option>
+                        </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="barangay">Barangay</label>
+                            <select id="barangay" name="barangay" disabled required>
+                            <option value="">-- Select Barangay --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                        <label for="zip">ZIP Code</label>
+                        <input type="text" id="zip" name="zip" required maxlength="4">
+                        </div>
+                        <div class="form-group">
+                        <label for="street">Street Name</label>
+                        <input type="text" id="street" name="street" required>
+                        </div>
+                        <div class="form-group">
+                        <label for="building">House/Building No.</label>
+                        <input type="text" id="building" name="building" required>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- Account Info -->
+                <fieldset>
+                    <legend>Account Information</legend>
+                    <div class="form-group">
+                        <label for="regUsername">Username</label>
+                        <input type="text" id="regUsername" name="regUsername" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <div class="password-wrap">
+                        <input type="password" id="regPassword" name="regPassword" minlength="6" required>
+                        <i class='bx bx-hide toggle-password' data-target="regPassword"></i>
+                        </div>
+                    <div class="form-group password-wrap">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="password-wrap">
+                        <input type="password" id="confirmPassword" name="confirmPassword" minlength="6" required>
+                        <i class='bx bx-hide toggle-password' data-target="confirmPassword"></i>
+                        </div>
+                    </div>
+                </fieldset>
+                <button type="submit">Create Account</button>
+                <p>Already have an account? <a href="#" onclick="switchToLogin()">Login here</a></p>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
