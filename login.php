@@ -41,14 +41,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <meta charset='UTF-8'>
                     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                     <title>Welcome</title>
-                    <link rel='stylesheet' href='style.css'>
+                    <link rel='stylesheet' href='styles.css'>
                 </head>
                 <body>
                     <div class='container'>
                         <h1>Welcome, " . htmlspecialchars($user['username']) . "!</h1>
                         <p>You have successfully logged in.</p>
                         <div class='form-footer'>
-                            <p><a href='logout.php'>Logout</a></p>
+                            <button><a href='logout.php' class='logout-button'>Logout</a></button>
                         </div>
                     </div>
                 </body>

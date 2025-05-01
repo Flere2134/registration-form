@@ -1,53 +1,60 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right,  #011c40, #011126, #f2d091, #8c2c08, #f2845c);
-    color: #333;
-    line-height: 1.5;
-    padding: 20px;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    to right,
+    #011c40,
+    #011126,
+    #f2d091,
+    #8c2c08,
+    #f2845c
+  );
+  color: #333;
+  line-height: 1.5;
+  padding: 20px;
 }
 .container {
-    max-width: 900px;
-    margin: auto;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px #f2f2f2;
+  max-width: 900px;
+  margin: auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px #f2f2f2;
 }
 
 h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 600;
-    color: #011c40;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #011c40;
 }
 
 fieldset {
-    border: 1px solid #011c40;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
+  border: 1px solid #011c40;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
 }
 
 legend {
-    padding: 0 10px;
-    font-weight: 500;
-    color: #011c40;
+  padding: 0 10px;
+  font-weight: 500;
+  color: #011c40;
 }
 
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .form-group label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 5px;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
 }
 
 .form-group input,
@@ -68,91 +75,106 @@ legend {
 }
 
 .form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .form-row .form-group {
-    flex: 1 1 100%;
+  flex: 1 1 100%;
 }
 
-button[type="submit"] {
-    background-color: #8c2c08;
-    color: #fff;
-    font-weight: 600;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-    background-color: #f2845c;
+.logout-button {
+  color: #fff;
 }
 
 a {
-    font-size: 13px;
-    color: #007bff;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 6px;
+  color: #fff;
+}
+
+button {
+  background-color: #8c2c08;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #f2845c;
+}
+
+a {
+  font-size: 13px;
+  color: #007bff;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 6px;
 }
 
 section {
-    animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.3s ease;
 }
 
 select:disabled {
-    background-color: #f2f2f2;
-    color: #999;
-    cursor: not-allowed;
+  background-color: #f2f2f2;
+  color: #999;
+  cursor: not-allowed;
 }
 
-input, select {
-    font-size: 16px;
+input,
+select {
+  font-size: 16px;
 }
 
 .password-wrap {
-    position: relative;
+  position: relative;
 }
 
 .password-wrap input {
-    padding-right: 40px;
+  padding-right: 40px;
 }
 
 .password-wrap .toggle-password {
-    position: absolute;
-    top: 50%;
-    right: 12px;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #8c2c08;
-    cursor: pointer;
-    z-index: 2;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #8c2c08;
+  cursor: pointer;
+  z-index: 2;
 }
 
 input.mismatch {
-    border-color: red !important;
+  border-color: red !important;
 }
 
 .feedback-msg {
-    font-size: 13px;
-    margin-top: 5px;
-    color: red;
+  font-size: 13px;
+  margin-top: 5px;
+  color: red;
 }
 .feedback-msg.valid {
-    color: green;
+  color: green;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 600px) {
-    .form-row .form-group {
-      flex: 1;
-    }
+  .form-row .form-group {
+    flex: 1;
+  }
 }
