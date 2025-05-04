@@ -33,25 +33,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     empty($last_name) || empty($phone_number) || empty($region) || empty($province) || 
     empty($city) || empty($barangay) || empty($zip_code) || empty($street_name) || 
     empty($house_building_no)) {
-        header("Location: register.html?error=Please fill in all required fields");
+        header("Location: index.html?error=Please fill in all required fields");
         exit();
     }
     
     // Validate email format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location: register.html?error=Invalid email format");
+        header("Location: index.html?error=Invalid email format");
         exit();
     }
     
     // Check if passwords match
     if ($password !== $reenter_password) {
-        header("Location: register.html?error=Passwords do not match");
+        header("Location: index.html?error=Passwords do not match");
         exit();
     }
     
     // Validate password length
     if (strlen($password) < 6) {
-        header("Location: register.html?error=Password must be at least 6 characters long");
+        header("Location: index.html?error=Password must be at least 6 characters long");
         exit();
     }
     
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute();
         
         if ($stmt->rowCount() > 0) {
-            header("Location: register.html?error=Username already exists");
+            header("Location: index.html?error=Username already exists");
             exit();
         }
         
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute();
         
         if ($stmt->rowCount() > 0) {
-            header("Location: register.html?error=Email already exists");
+            header("Location: index.html?error=Email already exists");
             exit();
         }
         
@@ -114,12 +114,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
     } catch(PDOException $e) {
         die("Error: " . $e->getMessage());
-        header("Location: register.html?error=Registration failed: " . $e->getMessage());
+        header("Location: index.html?error=Registration failed: " . $e->getMessage());
         exit();
     }
 } else {
     // Not a POST request
-    header("Location: register.html");
+    header("Location: index.html");
     exit();
 }
 ?>

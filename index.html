@@ -7,10 +7,32 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Registration Form</title>
+    <style>
+        /* Message styles */
+        .message-container {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .error-message {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        .success-message {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
+        <!-- Message container for errors and success messages -->
+        <div id="message-container" class="message-container"></div>
+        
         <section>
             <h2>Login</h2>
             <form id="login-form" action="login.php" method="POST">
@@ -145,5 +167,63 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+            var results = regex.exec(location.search);
+            return results === null
+                ? ""
+                : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        // Handle URL parameters for error and success messages
+        document.addEventListener("DOMContentLoaded", function() {
+            const messageContainer = document.getElementById("message-container");
+            const errorMsg = getUrlParameter("error");
+            const successMsg = getUrlParameter("success");
+            
+            // Display error message if present
+            if (errorMsg && errorMsg.trim() !== "") {
+                messageContainer.textContent = errorMsg;
+                messageContainer.className = "message-container error-message";
+                messageContainer.style.display = "block";
+                
+                // If error is related to registration, switch to register form
+                if (errorMsg.includes("Username already exists") || 
+                    errorMsg.includes("Email already exists") || 
+                    errorMsg.includes("Passwords do not match") ||
+                    errorMsg.includes("Please fill in all required fields") ||
+                    errorMsg.includes("Password must be at least")) {
+                    switchToRegister();
+                }
+            }
+            
+            // Display success message if present
+            if (successMsg && successMsg.trim() !== "") {
+                messageContainer.textContent = successMsg;
+                messageContainer.className = "message-container success-message";
+                messageContainer.style.display = "block";
+            }
+            
+            // Auto-hide message after 5 seconds
+            if (messageContainer.style.display === "block") {
+                setTimeout(function() {
+                    messageContainer.style.display = "none";
+                }, 5000);
+            }
+        });
+        
+        // Update register.php and login.php redirect paths
+        document.getElementById("register-form").addEventListener("submit", function(event) {
+            // Update the form action to point to index.html instead of register.html
+            this.action = "register.php";
+        });
+        
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            // Already pointing to index.html correctly
+        });
+    </script>
 </body>
 </html>
